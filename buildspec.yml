@@ -3,7 +3,8 @@ version: 0.1
 phases:
   pre_build:
     commands:
-      - $(aws ecr get-login --region $AWS_REGION)
+      - $(aws ecr get-login --region $AWS_DEFAULT_REGION --no-include-email)
+      - REPOSITORY_URI=770197195015.dkr.ecr.us-east-1.amazonaws.com/projectecr
   build:
     commands:
       - docker build -t $APP_IMAGE .
