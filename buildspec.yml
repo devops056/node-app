@@ -7,8 +7,8 @@ phases:
       - REPOSITORY_URI=770197195015.dkr.ecr.us-east-1.amazonaws.com/projectecr
   build:
     commands:
-      - docker build -t $APP_IMAGE .
-      - docker push $APP_IMAGE
+      - docker build -t $REPOSITORY_URI .
+      - docker push $REPOSITORY_URI
   post_build:
     commands:
       - echo Build completed on `date`
