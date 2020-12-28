@@ -14,14 +14,12 @@ phases:
     commands:
       - echo Build started on `date`
       - echo Building the Docker image...
-      - docker build -t projectecr .
-      - docker tag projectecr:latest12 770197195015.dkr.ecr.us-east-1.amazonaws.com/projectecr:latest12
+      - docker build projectecr .
   post_build:
     commands:
       - echo Build completed on `date`
       - echo Pushing the Docker images...
-      - docker push projectecrlatest12
-      - docker push projectecr:latest12
+      - docker push projectecr
       - echo Writing image definitions file...
       - printf '[{"name":"nodeapp","imageUri":"%s"}]' $REPOSITORY_URI:$IMAGE_TAG > imagedefinitions.json
       - cat imagedefinitions.json 
