@@ -1,5 +1,5 @@
-FROM node:latest
-
+#FROM node:latest
+FROM registry.agiletechnologies.in/library/node:latest
 
 # Create app directory
 WORKDIR /usr/src/app
